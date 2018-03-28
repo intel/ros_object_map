@@ -1,0 +1,11 @@
+<launch>
+
+  <!-- State Manager -->
+  <rosparam file="$(find object_map)/config/config.yaml" command="load" />
+
+  <!-- Start nodejs -->
+  <node name="object_map" pkg="object_map" type="object_map_node.py" output="screen" />
+
+
+</launch>
+
