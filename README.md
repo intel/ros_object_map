@@ -35,7 +35,7 @@ ros_object_map is ROS package which designes to mark tag of objects on map when 
 
 ### Step3: Launch cartographer and Rviz
 ```
-- roslaunch waterrobot_cartographer waterrobot_cartographer_sick_lidar_2d.launch
+- roslaunch cartographer_turtlebot turtlebot_urg_lidar_2d.launch
 ```
 
 ### Step4: Launch Object Map
