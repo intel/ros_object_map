@@ -29,13 +29,16 @@ ros_object_map is ROS package which designes to mark tag of objects on map when 
 
 ### Step2: Launch object_analytics
 ```
-- roslaunch realsense_ros_camera rs_camera.launch enable_pointcloud:=true enable_sync:=true enable_infra1:=false enable_infra2:=false
-- roslaunch object_analytics_visualization rviz.launch
+# launch with Movidius NCS as detection backend
+- roslaunch object_analytics_launch analytics_movidius_ncs.launch 
+# or launch with OpenCL caffe as detection backend
+- roslaunch object_analytics_launch analytics_opencl_caffe.launch
 ```
 
 ### Step3: Launch cartographer and Rviz
 ```
-- roslaunch cartographer_turtlebot turtlebot_urg_lidar_2d.launch
+- roslaunch object_map turtlebot_urg_lidar_2d.launch
+- roslaunch object_analytics_visualization rviz.launch
 ```
 
 ### Step4: Launch Object Map
@@ -45,7 +48,7 @@ ros_object_map is ROS package which designes to mark tag of objects on map when 
 
 ## 6 Interface
 ### 6.1 Topic
-  * ```/object_map/Markers``` : Publish MarkerArray on RVIZ
+  * ```/object_map/Markers``` : Publish MarkerArray on Rviz
   * ```/object_map/map_save``` : Subscribe map_save topic to save object maps
   * ```/object_analytics/detection```: Subscribe ObjectsInBoxes from object_analytics
   * ```/object_analytics/tracking```: Subscribe TrackedObjects from object_analytics
